@@ -1,0 +1,17 @@
+{
+  "_comment": "Example --grouping-map file for prep_niches_input.py. Maps every value your --celltype-col can take to a coarser bucket used as NICHES's sender/receiver identity (its `cell_types` argument). Delete the _comment key or leave it -- it's ignored. Copy this file, edit the keys/values to match your own --celltype-col values, and pass it with --grouping-map.",
+
+  "CD4+ T cell": "T cell",
+  "CD8+ T cell": "T cell",
+  "Treg": "T cell",
+  "CCR7+ DC": "DC",
+  "XCR1+ DC": "DC",
+  "cDC2": "DC",
+  "Macrophage": "Macrophage",
+  "NK cell": "NK cell",
+  "Neutrophil": "Neutrophil",
+  "Basophil": "Basophil",
+  "Fibroblast": "Fibroblast",
+  "Tumor cell": "Tumor cell",
+  "Poorly classified": "Poorly classified"
+}

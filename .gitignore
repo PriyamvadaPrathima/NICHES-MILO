@@ -1,0 +1,23 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Your data and pipeline outputs (h5ad/rds files are large and dataset-specific --
+# do not belong in version control)
+data/
+results/
+Results/
+*.h5ad
+*.rds
+*.pkl
+omnipathr-log/
+
+# OS cruft
+.DS_Store
+Thumbs.db

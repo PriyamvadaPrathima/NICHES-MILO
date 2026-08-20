@@ -1,0 +1,46 @@
+[project]
+name = "niches-milo"
+version = "0.1.0"
+description = "A flag-driven, dataset-agnostic NICHES+Milo cell-cell-communication pipeline: subset -> NICHES signaling network -> Milo differential abundance, plus a set of generic L-R heatmap/volcano figure scripts."
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    # Core scientific computing
+    "numpy<2",
+    "pandas",
+    "scipy",
+
+    # Visualization
+    "matplotlib",
+
+    # Single-cell analysis
+    "scanpy",
+    "anndata",
+
+    # Differential abundance (Milo) -- from GitHub, pinned commit (see
+    # README.md's "Known gotchas" for why this exact commit)
+    "milopy @ git+https://github.com/emdann/milopy.git@30646f538481151b6101b5e2f133858d2171000a",
+
+    # Neighborhood clustering (used by milo_helpers.py / _lib.py)
+    "networkx",
+    "python-louvain",  # imported as `community`, NOT the PyPI package named 'community'
+    "scikit-learn",
+    "distinctipy",
+
+    # Wilcoxon L-R table export (Step 3 --wilcox-out)
+    "xlsxwriter",
+]
+
+[dependency-groups]
+dev = [
+    "ruff",
+]
+
+# Packages _lib.py and milo_helpers.py so `uv run` makes them importable
+# from anywhere in this repo without a manual install step or sys.path hack.
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["_lib", "milo_helpers"]
